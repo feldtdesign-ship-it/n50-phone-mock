@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>N50 Qualified | Phone-first mock</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ice:#F5F2EA; --slate:#315377; --midnight:#141B3C; --amber:#F0B93F;
+  --frost:#DDE4EC; --steel:#8A98AC; --deep:#0E1330;
+  --display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --body:'Inter',-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',ui-monospace,monospace;
+  --u:8px; --gut:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--midnight);color:var(--ice);font-family:var(--body);
+  -webkit-font-smoothing:antialiased;line-height:1.45;font-size:17px;
+  font-kerning:normal;text-rendering:optimizeLegibility;hanging-punctuation:first}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
+p,li{text-wrap:pretty}
+.nb{white-space:nowrap}
+.ln{display:block}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel)}
+.wrap{padding:0 var(--gut);max-width:1100px;margin:0 auto}
+
+/* sticky bar */
+.bar{position:sticky;top:0;z-index:10;background:rgba(20,27,60,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(245,242,234,.14)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.bar img{height:24px;width:auto}
+.call{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;background:transparent;color:var(--amber);border:1px solid var(--amber);padding:0 14px;font-weight:500;
+  min-height:34px;display:inline-flex;align-items:center}
+.call:hover{background:var(--amber);color:var(--midnight)}
+
+/* screens */
+section{padding:72px 0;position:relative}
+section + section{border-top:1px solid rgba(245,242,234,.12)}
+.k{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--amber);margin-bottom:16px}
+h2{font-size:clamp(34px,9vw,60px);max-width:16ch}
+p.lede{color:var(--frost);max-width:46ch;margin:20px 0 0;line-height:1.45}
+p.lede + p.lede{margin-top:14px}
+
+/* hero */
+.hero{padding:0;min-height:calc(100svh - 56px);display:flex;flex-direction:column}
+.hero .photo{position:relative;height:32svh;min-height:200px;overflow:hidden}
+.hero .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero .photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,27,60,.15) 0%,var(--midnight) 98%)}
+.hero .copy{padding:8px var(--gut) 40px;max-width:1100px;margin:0 auto;width:100%}
+.hero h1{font-size:clamp(52px,16vw,120px);margin-top:12px}
+.hero h1 span{color:var(--amber)}
+.hero h1.quote{margin-top:14px;max-width:none;line-height:1.04}
+.hero h1.quote .a{display:block;font-size:clamp(20px,5.6vw,30px);font-weight:600;letter-spacing:-.01em;line-height:1.2;color:var(--frost);max-width:24ch;margin-bottom:14px}
+.hero h1.quote .b{display:block;font-size:clamp(40px,11.4vw,108px);color:var(--amber);line-height:1}
+.hero h1.quote .b i{display:block;font-style:normal;white-space:nowrap}
+.beats{margin:28px 0 0;padding:0;list-style:none}
+.beats li{font-family:var(--display);font-weight:800;font-size:clamp(24px,6.6vw,36px);line-height:1.15;padding:12px 0;border-top:1px solid rgba(245,242,234,.14)}
+.beats li:first-child{color:var(--amber);border-top:none;padding-top:0}
+.four{display:grid;gap:1px;background:rgba(245,242,234,.14);border:1px solid rgba(245,242,234,.14);margin-top:32px}
+.four div{background:var(--midnight);padding:22px 20px}
+.four b{font-family:var(--display);font-weight:800;font-size:22px;display:block}
+.four span{font-size:15px;color:var(--steel);display:block;margin-top:6px}
+.four em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);display:block;margin-top:10px}
+.rscale{margin-top:36px;display:grid;gap:18px}
+.rscale .r{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:baseline}
+.rscale .r span{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--steel)}
+.rscale .r b{font-family:var(--mono);font-weight:500;font-size:16px}
+.rscale .r i{grid-column:1/3;display:block;height:10px;background:var(--steel);width:var(--w)}
+.rscale .r.now span,.rscale .r.now b{color:var(--amber)}
+.rscale .r.now i{background:var(--amber)}
+.note{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--steel);margin-top:20px}
+.eps{list-style:none;margin:32px 0 0;padding:0;counter-reset:e}
+.eps li{counter-increment:e;display:grid;grid-template-columns:36px 1fr;gap:4px 10px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(245,242,234,.14);font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
+.eps li::before{content:counter(e,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--amber);font-weight:400}
+.eps li em{grid-column:2;font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);font-weight:400}
+.said{font-family:var(--display);font-weight:600;font-size:clamp(20px,5.4vw,26px);line-height:1.25;margin:28px 0 0;max-width:26ch;color:var(--frost)}
+.closer{padding:96px 0}
+.closer p{font-family:var(--display);font-weight:800;font-size:clamp(30px,8vw,58px);line-height:1.08;max-width:20ch;margin:0}
+.closer p .ln span{color:var(--amber);display:block}
+.closer p .ln + .ln{margin-top:.5em}
+.pull .ln + .ln{margin-top:.4em;color:var(--amber)}
+.hero .sub{font-size:19px;color:var(--frost);max-width:none;margin:20px 0 0}
+.hero .btns{display:none}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+  padding:14px 18px;min-height:48px;display:inline-flex;align-items:center;font-weight:500}
+.btn.solid{background:var(--amber);color:var(--midnight)}
+.btn.line{border:1px solid rgba(245,242,234,.4)}
+
+/* live numbers */
+.live{background:var(--deep)}
+.nums{display:grid;gap:1px;background:rgba(245,242,234,.14);margin-top:32px;border:1px solid rgba(245,242,234,.14)}
+.num{background:var(--deep);padding:22px 20px;display:flex;justify-content:space-between;align-items:baseline}
+.num .v{font-family:var(--mono);font-size:44px;font-weight:500;line-height:1}
+.num .v small{font-size:18px;color:var(--steel);margin-left:2px}
+.num.diff .v{color:var(--amber)}
+.device{width:100%;max-width:440px;margin:28px 0 0;border:0;padding:0;background:transparent}
+.device iframe{display:block;width:100%;height:1560px;border:0;background:transparent;color-scheme:dark;overflow:hidden}
+.tag{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--midnight);background:var(--steel);padding:4px 8px}
+.pulse::before{content:"";display:inline-block;width:8px;height:8px;background:var(--amber);margin-right:10px;
+  animation:p 2.4s ease-in-out infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.25}}
+.spark{margin-top:20px;border:1px solid rgba(245,242,234,.14);padding:12px;background:var(--deep)}
+.spark svg{width:100%;height:80px;display:block}
+
+/* problem figure */
+.fig{margin-top:36px}
+.fig img{border:1px solid rgba(245,242,234,.14)}
+.fig figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--steel);margin-top:12px;text-transform:uppercase}
+
+/* qualified list */
+ol.tests{list-style:none;padding:0;margin:32px 0 0;counter-reset:t}
+ol.tests li{counter-increment:t;display:grid;grid-template-columns:44px 1fr;gap:12px;padding:20px 0;
+  border-top:1px solid rgba(245,242,234,.14)}
+ol.tests li::before{content:counter(t,decimal-leading-zero);font-family:var(--mono);color:var(--amber);font-size:14px;padding-top:3px}
+ol.tests li b{font-family:var(--display);font-weight:800;font-size:20px;display:block}
+ol.tests li span{color:var(--steel);font-size:15px}
+.pull{font-family:var(--display);font-weight:800;font-size:clamp(26px,7vw,40px);line-height:1.1;margin-top:32px;max-width:20ch}
+
+/* frame */
+.frame{background:var(--ice);color:var(--midnight)}
+.frame .k{color:var(--slate)}
+.frame p.lede{color:#3a4560}
+.frame figure{margin:40px 0 0;background:#fff;padding:32px 24px;border:1px solid #d5d9e0}
+.frame figure img{margin:0 auto;max-height:none;width:100%;height:auto}
+.renders{display:grid;gap:20px}
+.renders figure{margin:0}
+.renders img{mix-blend-mode:multiply}
+.frame figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#59627a;margin-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.frame .pend{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-top:20px;color:var(--slate)}
+section.frame + section{border-top:none}
+section + section.frame{border-top:none}
+
+/* two-col photo cards */
+.cards{display:grid;gap:20px;margin-top:36px}
+.card img{width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid rgba(245,242,234,.14)}
+.card p{font-size:14px;color:var(--steel);margin:12px 0 0}
+
+/* who */
+.who{display:grid;gap:28px}
+.portrait{width:100%;max-width:300px;aspect-ratio:1/1;object-fit:cover}
+.role{font-family:var(--mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--steel);margin:14px 0 0}
+.people{display:grid;gap:1px;background:rgba(245,242,234,.14);border:1px solid rgba(245,242,234,.14);margin-top:32px}
+.person{background:var(--midnight);padding:20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.person b{font-family:var(--display);font-weight:800;font-size:20px}
+.person span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel)}
+.phimg{width:56px;height:56px;object-fit:cover;flex:none}
+.ph{width:56px;height:56px;border:1px dashed var(--steel);flex:none;display:grid;place-items:center;
+  font-family:var(--mono);font-size:9px;color:var(--steel);text-align:center}
+
+/* contact + footer */
+form{display:grid;gap:12px;margin-top:28px;max-width:420px}
+input{font:inherit;background:var(--deep);color:var(--ice);border:1px solid rgba(245,242,234,.3);padding:14px;min-height:48px;border-radius:0}
+input::placeholder{color:var(--steel)}
+footer{padding:36px 0 120px;border-top:1px solid rgba(245,242,234,.12);font-family:var(--mono);font-size:12px;line-height:1.9;color:var(--steel)}
+footer p{max-width:60ch;margin:0 0 16px;font-family:var(--body);font-size:13px;line-height:1.6}
+footer a{color:var(--amber);text-decoration:none}
+
+/* sticky bottom call (phone only) */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;background:rgba(20,27,60,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(245,242,234,.18)}
+.dock a{flex:1;text-align:center;padding:16px;font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--amber);text-decoration:none;font-weight:500;min-height:48px}
+.dock a + a{border-left:1px solid rgba(245,242,234,.18)}
+
+.mockflag{position:fixed;top:60px;right:8px;z-index:11;font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;background:var(--steel);color:var(--midnight);padding:3px 7px}
+
+/* desktop: same page, wider */
+@media (min-width:720px){
+  .four{grid-template-columns:repeat(2,1fr)}
+  :root{--gut:40px}
+  body{font-size:18px}
+  section{padding:120px 0}
+  .dock{display:none}
+  .hero .btns{display:flex}
+  .hero h1.quote .b{font-size:clamp(40px,5.4vw,92px)}
+  .hero h1.quote .a{font-size:clamp(20px,2.6vw,34px)}
+  .hero .copy{padding-right:24px}
+  footer{padding-bottom:48px}
+  .hero{min-height:calc(100vh - 56px);flex-direction:row;align-items:stretch}
+  .hero .photo{height:auto;order:2;flex:1.1;min-height:0}
+  .hero .photo::after{background:linear-gradient(90deg,var(--midnight) 0%,rgba(20,27,60,.1) 55%)}
+  .hero .copy{order:1;flex:1;padding:0 40px 0 max(40px,calc((100vw - 1100px)/2 + 40px));
+    display:flex;flex-direction:column;justify-content:center;max-width:none;width:auto}
+  #live .wrap{display:grid;grid-template-columns:1fr minmax(300px,420px);column-gap:clamp(28px,5vw,64px);align-items:start}
+  #live .wrap>.k,#live .wrap>h2,#live .wrap>p.lede{grid-column:1}
+  #live .device{grid-column:2;grid-row:1/6;margin-top:0}
+  #live .wrap>.label,#live .wrap>.btns{grid-column:1}
+  .num{flex-direction:column;gap:12px;align-items:flex-start;padding:28px}
+  .cards{grid-template-columns:1fr 1fr}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+  .frame figure{margin-top:0}
+  .who{grid-template-columns:minmax(200px,300px) 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+}
+</style>
+</head>
+<body>
+
+<header class="bar"><div class="wrap">
+  <img src="img/mark-cream.png" alt="N50">
+  <a class="call" href="mailto:info@north50buildingsystems.com">Contact us</a>
+</div></header>
+<div class="mockflag">mock</div>
+
+<!-- 1 HERO -->
+<section class="hero">
+  <div class="photo"><img src="img/lab-windows.jpg" alt="Lab windows at dusk with temperature sensors on the glass"></div>
+  <div class="copy">
+    <div class="label">Fairbanks, Alaska · 64.8 N</div>
+    <div class="k" style="margin:14px 0 0"><span class="nb">N50 Qualified</span></div>
+    <h1 class="quote"><span class="a">We do not seek what can survive north of the&nbsp;50th&nbsp;parallel.</span><span class="b"><i>We seek</i><i>what thrives.</i></span></h1>
+    <p class="sub">What works here,<br>works anywhere.</p>
+    <div class="btns">
+      <a class="btn solid" href="#live">See the test live</a>
+      <a class="btn line" href="#qualified">What it means</a>
+    </div>
+  </div>
+</section>
+
+<!-- 2 PROBLEM -->
+<section>
+  <div class="wrap split">
+    <div>
+      <div class="k">01 &middot; The problem</div>
+      <h2>Glass has always been the weakest&nbsp;link.</h2>
+      <p class="lede">The element that admits a feeble winter sun while exacting a heavy toll in heat loss.</p>
+      <ul class="beats"><li>No longer.</li><li>Vacuum stops convection.</li><li>It stops conduction.</li><li>It even stops the transmission of sound.</li></ul>
+    </div>
+    <figure class="fig">
+      <img src="img/thermal-edges.jpg" alt="Thermal camera image of freshly sealed glass units with warm edges">
+      <figcaption>Thermal camera, freshly sealed glass units, 18 Sep &middot; Real photo</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2b NO PART + R HISTORY -->
+<section>
+  <div class="wrap">
+    <div class="k">02 &middot; The best part is no part</div>
+    <h2>The best part<br>is no&nbsp;part.</h2>
+    <p class="lede">The best part of a vacuum window is the nothing between two panes of tempered&nbsp;glass.</p>
+    <p class="lede">Adding layers or complexity does not improve performance. Vacuum refuses to move heat. Atmospheric pressure, however, hates&nbsp;vacuum.</p>
+    <div class="rscale" role="img" aria-label="R-value of window glass over time, from R-1 for single pane to R-18 for vacuum glass and R-23 with a third lite">
+      <div class="r"><span>Single pane</span><b>R-1</b><i style="--w:4%"></i></div>
+      <div class="r"><span>1865 &middot; Double pane</span><b>R-2</b><i style="--w:9%"></i></div>
+      <div class="r"><span>1970s &middot; Argon</span><b>R-3</b><i style="--w:13%"></i></div>
+      <div class="r"><span>1990s &middot; Low-e</span><b>R-5</b><i style="--w:22%"></i></div>
+      <div class="r"><span>2000s &middot; Triple pane</span><b>R-7</b><i style="--w:30%"></i></div>
+      <div class="r now"><span>Now &middot; Vacuum glass</span><b>R-18</b><i style="--w:78%"></i></div>
+      <div class="r now"><span>Vacuum glass plus third lite</span><b>R-23</b><i style="--w:100%"></i></div>
+    </div>
+    <p class="note">Center of glass. Whole-window numbers are lower.</p>
+  </div>
+</section>
+
+<!-- 3 LIVE -->
+<section class="live" id="live">
+  <div class="wrap">
+    <div class="k pulse">03 &middot; The proof</div>
+    <h2>The proof is live.</h2>
+    <p class="lede">We are testing Vacuum Insulated Glass Integrations in Alaska’s proving ground. Two walls sit in a Fairbanks lab, wired with sensors. This is the outside air and the inside glass, updated every 15 minutes.</p>
+    <div class="device">
+      <iframe src="https://feldtdesign-ship-it.github.io/n50-lab-live/phone.html" title="Live readings from the N50 lab" loading="lazy"></iframe>
+    </div>
+    <p class="label" style="margin-top:16px">This is our live lab page. Real readings, every 15 minutes.</p>
+  </div>
+</section>
+
+<!-- 4 QUALIFIED -->
+<section id="qualified">
+  <div class="wrap split">
+    <div>
+      <div class="k">04 &middot; What Qualified means</div>
+      <h2><span class="ln">Not the survivors.</span><span class="ln">The thrivers.</span></h2>
+      <p class="lede">Applying arctic, real world testing, the Laws of Clear Thinking and the scientific method, we qualify not the survivors, but the thrivers.</p><p class="lede">Window systems and components worthy of N50 Qualified: unmatched thermal efficiency, durability, and peace of&nbsp;mind.</p><p class="lede">Built for Alaska’s harshest realities, for use in any climate. If it performs in Fairbanks, Alaska, it will confidently perform&nbsp;anywhere.</p>
+    </div>
+    <div>
+      <ol class="tests">
+        <li><div><b>Test one</b><span>To be written with Kevin.</span></div></li>
+        <li><div><b>Test two</b><span>To be written with Kevin.</span></div></li>
+        <li><div><b>Test three</b><span>To be written with Kevin.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 5 FRAME -->
+<section class="frame">
+  <div class="wrap split">
+    <div>
+      <div class="k">05 &middot; The frame</div>
+      <h2>Vacuum glass shames the&nbsp;frame.</h2>
+      <p class="lede">Most conventional frames are designed around aesthetics and maximum visible glass. Overall U-value is rarely treated as the primary design driver. Until vacuum insulated glass arrived, the frame was rarely the weakest&nbsp;link.</p><p class="lede">Our goal is a complete cold-climate assembly, designed to survive thermal cycling and to stay manufacturable, installable and maintainable. Two designs are in development: the Shameless and the&nbsp;Jumbo.</p>
+      <p class="lede">We are also working on systems to retrofit existing vinyl frames suitable for an upgrade, so the switch to vacuum glass is affordable for any&nbsp;home.</p>
+      <div class="pend">Patent pending</div>
+    </div>
+    <div class="renders">
+      <figure>
+        <img src="img/frame-hero.jpg" alt="Three-quarter render of the Shameless frame holding a vacuum glass lite, with a small cutaway sample beside it">
+        <figcaption><span>Concept mock-up</span><span>The Shameless frame</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/frame-assembly.jpg" alt="Three-quarter cutaway of the frame section showing insulated cavities around two lites of glass">
+        <figcaption><span>Concept mock-up</span><span>Cutaway: insulated cavities at the glass edge</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6 FAIRBANKS -->
+<section>
+  <div class="wrap">
+    <div class="k">06 &middot; Why Fairbanks</div>
+    <h2><span class="ln">What works here,</span><span class="ln">works anywhere.</span></h2>
+    <p class="lede">Why Fairbanks? Keeping heat on one side of a window isn’t exclusively an issue for Arctic&nbsp;climes.</p><p class="lede">Insulation keeps heat in or out, lowering the cost of holding the temperature inside the building.</p><p class="lede">Whether you are heating or cooling, high performance insulation is purchased once, while utility bills come due monthly. Buy once, cry&nbsp;once.</p>
+    <div class="cards">
+      <div class="card"><img src="img/lab-inside.jpg" alt="Three test windows in the lab wall seen from inside" style="object-position:50% 40%"><p>The test wall from inside the lab.</p></div>
+      <div class="card"><img src="img/lab-dusk.jpg" alt="Outside of the lab at dusk with sensor wires on the glass" style="object-position:50% 55%"><p>The lab from outside, with sensor wires on the glass.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 CHAIN -->
+<section>
+  <div class="wrap">
+    <div class="k">07 &middot; Completing the chain</div>
+    <p class="pull"><span class="ln">Our charter does not diminish the glazing businesses already operating in&nbsp;Alaska.</span><span class="ln">It completes them.</span></p>
+    <p class="lede">We are finishing the supply chain that has never existed&nbsp;here.</p><p class="lede">High-performance glass that now arrives at high cost from the Lower 48 is tempered, completed, qualified and distributed from Fairbanks. Local fabricators and installers gain a reliable wholesale source instead of competing against freight and&nbsp;distance.</p><p class="lede">A rising tide lifts all ships. North 50 is the&nbsp;tide.</p>
+  </div>
+</section>
+
+<!-- 7b FOUR PARTS (Kevin’s site map, 21 Jul) -->
+<section>
+  <div class="wrap">
+    <div class="k">08 &middot; Four parts</div>
+    <h2>One company,<br>four&nbsp;doors.</h2>
+    <div class="four">
+      <div><b>North 50 Building Products</b><span>Wholesale vacuum insulated glass. Wholesale legacy insulated glass.</span><em>Online quoting and ordering: planned</em></div>
+      <div><b>N50 Qualified</b><span>Window systems and components that pass our Fairbanks test.</span></div>
+      <div><b>Joy Arctic Innovation Center</b><span>A proposed home for Arctic building research in Fairbanks.</span><em>Proposed</em></div>
+      <div><b>Arctic Test Labs</b><span>Real-world cold testing, live from the lab.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7c LEARN -->
+<section>
+  <div class="wrap">
+    <div class="k">09 &middot; Learn</div>
+    <h2>How heat really<br>moves.</h2>
+    <p class="lede">Not theory. Not lab conditions. Actual performance in minus forty and below, with real wind and real thermal cycling.</p>
+    <p class="lede">Ten short videos from Kevin on the physics of windows. Not here to sell you anything, just to explain how it works.</p>
+    <ol class="eps">
+      <li>The Impossible Vacuum <em>Coming</em></li>
+      <li>Why Windows Leak Heat <em>Coming</em></li>
+      <li>The Physics of Nothing <em>Coming</em></li>
+      <li>The Edge Is Everything <em>Coming</em></li>
+      <li>R&#8209;7 to R&#8209;18: A Different Kind of&nbsp;Leap <em>Coming</em></li>
+      <li>The Frame Is Now the Weakest&nbsp;Link <em>Coming</em></li>
+      <li>Thermal Bridging and the 2&#8209;Inch&nbsp;Theory <em>Coming</em></li>
+      <li>The Arctic as the Ultimate Test&nbsp;Lab <em>Coming</em></li>
+      <li>Building for 2075 <em>Coming</em></li>
+      <li>Who Gets to Define the Next&nbsp;Standard? <em>Coming</em></li>
+    </ol>
+    <div class="btns" style="display:flex"><a class="btn line" href="https://open.spotify.com/show/7AONOCLEsjvClTYB1E3qdk">Listen: The Cold Envelope</a></div>
+  </div>
+</section>
+
+<!-- 8 WHO -->
+<section>
+  <div class="wrap who">
+    <img class="portrait" src="img/kevin.jpg" alt="Kevin Tennant">
+    <div>
+      <div class="k">10 &middot; Who we are</div>
+      <h2>Kevin Tennant</h2>
+      <p class="role">Vice President, North 50 Building Systems</p>
+      <p class="lede">Kevin Tennant is a retired U.S. Air Force Senior Master Sergeant and the founder and president of GDI Inc., which operates Glass Doctor of&nbsp;Fairbanks, Glass Doctor of the Mat&#8209;Su&nbsp;Valley, Mat&#8209;Su Insulated Glass, and Thermalite Glass&nbsp;Manufacturing.</p>
+      <p class="lede">In January 1998, while still serving full-time in the Guard, Kevin and Tamera started a windshield-repair business at their kitchen table with a $500 rock-chip kit and discarded windshields. It grew into residential and commercial glass and heavy-equipment work for customers that included Fort Knox, the Alaska Railroad, and Eielson Air Force&nbsp;Base.</p>
+      <p class="lede">In 2019 the U.S. Small Business Administration’s Alaska District Office named Glass Doctor of Fairbanks the Alaska Veteran-Owned Business of the Year. In 2021 its franchisor named it Franchisee of the&nbsp;Year.</p>
+      <p class="said">I was asked if I wanted to “Make a Difference.” And that answer was&nbsp;yes.</p>
+      <p class="lede">Kevin continues to focus on high-performance glazing suited to Alaska’s extreme climate, including vacuum-insulated glass work connected to local&nbsp;projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8b CLOSER -->
+<section class="closer"><div class="wrap">
+  <p><span class="ln">In the Arctic, heat is not&nbsp;comfort.</span><span class="ln">At minus fifty it is <span>the difference between life and&nbsp;death.</span></span></p>
+</div></section>
+
+<!-- 9 CONTACT -->
+<section>
+  <div class="wrap">
+    <div class="k">11 &middot; Updates</div>
+    <h2><span class="ln">Join our mailing list</span><span class="ln">for updates.</span></h2>
+    <form onsubmit="return false">
+      <input type="email" placeholder="Email" aria-label="Email">
+      <a class="btn solid" href="#">Join the list</a>
+    </form>
+  </div>
+  <div class="wrap" style="margin-top:72px">
+    <footer>
+      <p>To identify, test, qualify, and commercialize high-performance building systems that reliably perform in demanding environments, starting with the Arctic, and to turn technical credibility into scalable, trusted products for the glazing industry.</p>
+      North 50 Building Systems · Fairbanks, Alaska<br>
+      <a href="mailto:info@north50buildingsystems.com">info@north50buildingsystems.com</a>
+    </footer>
+  </div>
+</section>
+
+<nav class="dock" aria-label="Quick actions"><a href="mailto:info@north50buildingsystems.com">Contact us</a><a href="#live">Live test</a></nav>
+</body>
+</html>
