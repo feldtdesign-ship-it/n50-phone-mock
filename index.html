@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>N50 Qualified | Phone-first mock</title>
+<title>North 50 Building Systems | Site mock</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --ice:#F5F2EA; --slate:#315377; --midnight:#141B3C; --amber:#F0B93F;
@@ -105,8 +105,6 @@ p.lede + p.lede{margin-top:14px}
 .num .v{font-family:var(--mono);font-size:44px;font-weight:500;line-height:1}
 .num .v small{font-size:18px;color:var(--steel);margin-left:2px}
 .num.diff .v{color:var(--amber)}
-.device{width:100%;max-width:440px;margin:28px 0 0;border:0;padding:0;background:transparent}
-.device iframe{display:block;width:100%;height:1560px;border:0;background:transparent;color-scheme:dark;overflow:hidden}
 .tag{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
   text-transform:uppercase;color:var(--midnight);background:var(--steel);padding:4px 8px}
 .pulse::before{content:"";display:inline-block;width:8px;height:8px;background:var(--amber);margin-right:10px;
@@ -114,6 +112,91 @@ p.lede + p.lede{margin-top:14px}
 @keyframes p{0%,100%{opacity:1}50%{opacity:.25}}
 .spark{margin-top:20px;border:1px solid rgba(245,242,234,.14);padding:12px;background:var(--deep)}
 .spark svg{width:100%;height:80px;display:block}
+
+
+/* live lab readings (ported from the homepage) */
+:root{--cold:#7EC3E6;--panel:rgba(245,242,234,.04);--panel2:rgba(245,242,234,.07);--hair:rgba(245,242,234,.18);--hair2:rgba(245,242,234,.12)}
+.lb-live{
+  display:inline-flex;align-items:center;gap:calc(var(--u)*1.5);
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);
+}
+.lb-live .lb-dot{width:8px;height:8px;background:var(--amber);flex:none;animation:pulse 2.4s ease-in-out infinite}
+.lb-live b{color:var(--amber);font-weight:600}
+.lb-live.stale .lb-dot{background:var(--steel);animation:none}
+.lb-live.stale b{color:var(--steel)}
+/* readings grid */
+.lb-grid{
+  display:grid;gap:calc(var(--u)*2);
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin-top:calc(var(--u)*4);
+}
+.lb-card{
+  background:var(--panel);border:1px solid var(--hair2);
+  padding:calc(var(--u)*2.5) calc(var(--u)*2.5) calc(var(--u)*2.75);
+  min-width:0;
+}
+.lb-card.lb-out{grid-column:1 / -1;display:flex;align-items:baseline;justify-content:space-between;gap:calc(var(--u)*3)}
+.lb-k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--steel)}
+.lb-k.lb-sub{text-transform:none;letter-spacing:.04em;margin-top:6px;font-size:11px}
+.lb-num{font-family:var(--display);font-stretch:68%;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.lb-num small{font-weight:500;margin-left:3px}
+.lb-out .lb-num{font-size:clamp(44px,5vw,64px);color:var(--cold)}
+.lb-out .lb-num small{font-size:.38em}
+
+.lb-wh{display:flex;justify-content:space-between;align-items:baseline;gap:calc(var(--u)*2);margin-bottom:calc(var(--u)*1.5)}
+.lb-wh h3{white-space:nowrap;font-stretch:72%;font-weight:800;font-size:clamp(22px,2.4vw,30px);letter-spacing:.02em;text-transform:uppercase}
+.lb-wh span{max-width:48%;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);text-align:right}
+.lb-wall .lb-hero2{display:flex;flex-direction:column;gap:calc(var(--u)*1.75)}
+.lb-big{display:flex;flex-wrap:wrap;align-items:baseline;column-gap:calc(var(--u)*2)}
+.lb-big .lb-k{flex-basis:100%}
+.lb-key{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--steel);margin-top:6px;display:flex;gap:6px 14px;flex-wrap:wrap}
+.lb-key b{color:var(--ice);font-weight:500}
+.lb-big .lb-num{font-size:clamp(52px,5.6vw,72px);color:var(--amber);font-weight:800;font-stretch:66%}
+.lb-big .lb-num small{font-size:.34em;font-weight:600}
+.lb-big .lb-s{font-size:13px;color:var(--frost);margin-top:6px}
+.lb-wall svg{width:100%;height:auto}
+.lb-bar{margin-top:calc(var(--u)*1.75)}
+.lb-bar svg{width:100%;height:auto}
+.lb-bar .lb-lbl{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--steel);margin-top:6px}
+.lb-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--u);margin-top:calc(var(--u)*1.75)}
+.lb-st{background:var(--panel2);padding:10px 10px 9px}
+.lb-st .lb-k{font-size:9.5px;letter-spacing:.1em;line-height:1.3}
+.lb-st .lb-num{font-size:26px;font-stretch:75%;margin-top:4px}
+.lb-st .lb-num small{font-size:13px}
+.lb-vnote{font-size:10.5px;line-height:1.45;color:var(--steel);margin:calc(var(--u)*1.25) 0 0}
+.lb-vnote b{color:var(--ice);font-weight:500}
+
+.lb-cams{grid-column:1 / -1;display:none}
+.lb-cams.on{display:block}
+.lb-cams h3{font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin:0 0 calc(var(--u)*1.5)}
+.lb-cams .lb-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--u)*2)}
+.lb-cams .lb-cam{min-width:0}
+.lb-cams .lb-cam .lb-k{margin-bottom:6px}
+.lb-cams .lb-vid{position:relative;aspect-ratio:16/9;background:var(--panel2);border:1px solid var(--hair2)}
+.lb-cams .lb-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lb-cams .lb-hours{font-family:var(--mono);font-size:10.5px;color:var(--steel);margin-top:calc(var(--u)*1.25)}
+@media (max-width:720px){.lb-cams .lb-pair{grid-template-columns:1fr}}
+.lb-chart{grid-column:1 / -1}
+.lb-chart h3{font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin:0 0 calc(var(--u)*1.5)}
+.lb-chart svg{width:100%;height:auto}
+.lb-legend{display:flex;flex-wrap:wrap;gap:calc(var(--u)*1.5) calc(var(--u)*2.5);margin-top:calc(var(--u)*1.5);font-family:var(--mono);font-size:10.5px;color:var(--frost)}
+.lb-legend i{display:inline-block;width:14px;height:3px;margin-right:6px;vertical-align:3px}
+.lb-aktime{font-family:var(--mono);font-size:9.5px;color:var(--steel);margin-top:4px;text-align:right}
+
+.lb-lab-foot{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:calc(var(--u)*1.5) calc(var(--u)*3);
+  margin-top:calc(var(--u)*3);
+}
+.lb-note{font-family:var(--mono);font-size:11px;line-height:1.65;color:var(--steel);max-width:62ch;margin:0}
+a.lb-full{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);text-decoration:none;white-space:nowrap}
+a.lb-full:hover{text-decoration:underline}
+.lb-unavail{font-family:var(--mono);font-size:12px;color:var(--steel);padding:calc(var(--u)*3) 0}
+
+
+#live .lb-grid{margin-top:16px}
+@media (max-width:719px){#live .lb-grid{grid-template-columns:1fr}}
+#live .lb-num{font-family:var(--display)}
+#live .lb-note{text-transform:none;letter-spacing:0;font-size:11px;line-height:1.65;margin:0}
 
 /* problem figure */
 .fig{margin-top:36px}
@@ -195,10 +278,6 @@ footer a{color:var(--amber);text-decoration:none}
   .hero .photo::after{background:linear-gradient(90deg,var(--midnight) 0%,rgba(20,27,60,.1) 55%)}
   .hero .copy{order:1;flex:1;padding:0 40px 0 max(40px,calc((100vw - 1100px)/2 + 40px));
     display:flex;flex-direction:column;justify-content:center;max-width:none;width:auto}
-  #live .wrap{display:grid;grid-template-columns:1fr minmax(300px,420px);column-gap:clamp(28px,5vw,64px);align-items:start}
-  #live .wrap>.k,#live .wrap>h2,#live .wrap>p.lede{grid-column:1}
-  #live .device{grid-column:2;grid-row:1/6;margin-top:0}
-  #live .wrap>.label,#live .wrap>.btns{grid-column:1}
   .num{flex-direction:column;gap:12px;align-items:flex-start;padding:28px}
   .cards{grid-template-columns:1fr 1fr}
   .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
@@ -248,7 +327,8 @@ footer a{color:var(--amber);text-decoration:none}
 
 <!-- 2b NO PART + R HISTORY -->
 <section>
-  <div class="wrap">
+  <div class="wrap split">
+    <div>
     <div class="k">02 &middot; The best part is no part</div>
     <h2>The best part<br>is no&nbsp;part.</h2>
     <p class="lede">The best part of a vacuum window is the nothing between two panes of tempered&nbsp;glass.</p>
@@ -263,6 +343,11 @@ footer a{color:var(--amber);text-decoration:none}
       <div class="r now"><span>Vacuum glass plus third lite</span><b>R-23</b><i style="--w:100%"></i></div>
     </div>
     <p class="note">Center of glass. Whole-window numbers are lower.</p>
+    </div>
+    <figure class="fig">
+      <img src="img/pillar-coin.jpg" alt="A vacuum glass support pillar resting on a coin, for scale">
+      <figcaption>A support pillar on a coin, for scale. Rows of these hold the two lites apart across the vacuum &middot; Real photo</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -272,13 +357,37 @@ footer a{color:var(--amber);text-decoration:none}
     <div class="k pulse">03 &middot; The proof</div>
     <h2>The proof is live.</h2>
     <p class="lede">We are testing Vacuum Insulated Glass Integrations in Alaska’s proving ground. Two walls sit in a Fairbanks lab, wired with sensors. This is the outside air and the inside glass, updated every 15 minutes.</p>
-    <div class="device">
-      <iframe src="https://feldtdesign-ship-it.github.io/n50-lab-live/phone.html" title="Live readings from the N50 lab" loading="lazy"></iframe>
+    <div style="margin-top:28px"><div class="lb-live stale" id="lbLive"><span class="lb-dot"></span><span id="liveT">Loading readings</span></div></div>
+    <div class="lb-grid" style="margin-top:16px" id="grid">
+      <div class="lb-card lb-out">
+        <div><div class="lb-k">Outside air</div><div class="lb-k lb-sub">measured at the lab</div></div>
+        <div class="lb-num" id="outV">--</div>
+      </div>
+      <section class="lb-card lb-wall" id="wallA"></section>
+      <section class="lb-card lb-wall" id="wallB"></section>
+      <section class="lb-card lb-cams" id="cams" aria-label="Live cameras">
+        <h3>Live cameras</h3>
+        <div class="lb-pair" id="camPair"></div>
+        <p class="lb-hours" id="camHours">Streaming during lab hours, Alaska time. Outside those hours the players show offline.</p>
+      </section>
+      <section class="lb-card lb-chart" id="chartCard">
+        <h3 id="chT">The last 24 hours</h3>
+        <div id="chart"></div>
+        <div class="lb-legend"><span><i style="background:var(--cold)"></i>Outside air</span><span><i style="background:var(--amber)"></i>V Series glass</span><span><i style="background:var(--ice)"></i>L Series glass</span><span><i style="background:var(--steel)"></i>Room air</span></div>
+      </section>
     </div>
-    <p class="label" style="margin-top:16px">This is our live lab page. Real readings, every 15 minutes.</p>
+
+    <div class="lb-lab-foot">
+      <p class="lb-note">The big number is the inside center of each lite, averaged. Each lite also shows its outside center and inside edge. Readings arrive every 15 minutes from the loggers at the lab.</p>
+      <a class="lb-full" href="https://feldtdesign-ship-it.github.io/n50-lab-live/">Full lab dashboard &rarr;</a>
+    </div>
+
+    <div class="cards" style="margin-top:20px">
+      <div class="card"><img src="img/ir-lseries-1.jpg" alt="Thermal camera view of the L Series wall from inside the lab" style="aspect-ratio:4/3"><p>L Series wall from inside, thermal camera, 17 Oct. Glass centre 59 F, frame cooler.</p></div>
+      <div class="card"><img src="img/ir-lseries-2.jpg" alt="Second thermal camera view of the L Series wall from inside the lab" style="aspect-ratio:4/3"><p>Same wall, a step to the right. The glass holds its heat across all six lites.</p></div>
+    </div>
   </div>
 </section>
-
 <!-- 4 QUALIFIED -->
 <section id="qualified">
   <div class="wrap split">
@@ -421,5 +530,72 @@ footer a{color:var(--amber);text-decoration:none}
 </section>
 
 <nav class="dock" aria-label="Quick actions"><a href="mailto:info@north50buildingsystems.com">Contact us</a><a href="#live">Live test</a></nav>
+<script>
+// Live lab readings. Reads the newest numbers straight from the lab-data branch on GitHub.
+(function(){
+const SRC="https://raw.githubusercontent.com/feldtdesign-ship-it/n50-lab-live/lab-data/";
+const WALLS={A:{name:"V Series",tag:"3 lites",lites:["V1","V2","V3"]},B:{name:"L Series",tag:"6 lites · one frame",lites:["L1","L2","L3","L4","L5","L6"]}};
+const C={cold:"#7EC3E6",amber:"#F0B93F",ice:"#F5F2EA",steel:"#8A98AC",night:"#141B3C",grid:"rgba(245,242,234,.10)",frameFill:"#1E2A52"};
+const $=id=>document.getElementById(id);
+const f1=v=>v==null?"--":v.toFixed(1);
+const avg=a=>{a=a.filter(v=>typeof v==="number");return a.length?a.reduce((s,v)=>s+v,0)/a.length:null};
+function mix(t,lo,hi){const u=Math.max(0,Math.min(1,(t-lo)/((hi-lo)||1)));const c0=[126,195,230],c1=[240,185,63];return `rgb(${c0.map((x,i)=>Math.round(x+(c1[i]-x)*u)).join(",")})`}
+function wallStats(P,w){const L=WALLS[w].lites;const ei=L.map(l=>P[l+" ei"]).filter(v=>typeof v==="number");
+  return{room:P[w+":air in 1"],out:P[w+":air out 1"],glass:avg(L.map(l=>P[l+" ci"])),edge:ei.length?Math.min(...ei):null,ci:L.map(l=>P[l+" ci"]),ce:L.map(l=>P[l+" ce"]),ei:L.map(l=>P[l+" ei"])}}
+const MONO='font-family="IBM Plex Mono, ui-monospace, monospace"';
+function lite(x,y,w,h,name,ci,ce,ei,lo,hi){const fill=ci==null?C.frameFill:mix(ci,lo,hi), ink=ci==null?C.steel:C.night;
+  const row=(ky,label,v,big)=>`<text x="${x+7}" y="${ky}" ${MONO} font-size="7.5" letter-spacing=".08em" fill="${ink}" opacity=".75">${label}</text><text x="${x+w-7}" y="${ky}" text-anchor="end" ${MONO} font-size="${big?13:11.5}" font-weight="${big?700:500}" fill="${ink}">${v==null?"--":v.toFixed(1)}</text>`;
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${fill}"/>`+
+    `<text x="${x+7}" y="${y+12}" ${MONO} font-size="8.5" font-weight="600" fill="${ink}">${name}</text>`+
+    row(y+h*0.44,"IN",ci,true)+row(y+h*0.64,"OUT",ce,false)+row(y+h*0.84,"EDGE",ei,false)}
+function windows(w,s){const lo=s.out,hi=s.room;
+  if(w==="A"){let g="";s.ci.forEach((t,i)=>{const x=4+i*98;g+=lite(x,4,92,108,"V"+(i+1)+(i===1?"*":""),s.ci[i],s.ce[i],s.ei[i],lo,hi)+`<rect x="${x}" y="4" width="92" height="108" rx="2" fill="none" stroke="${C.ice}" stroke-width="3"/>`});return `<svg viewBox="0 0 300 116" aria-hidden="true">${g}</svg>`}
+  let g="";
+  for(let c=0;c<3;c++){const x=8+c*96; const top=2-c, bot=5-c;  // from inside: top row L3 L2 L1, bottom row L6 L5 L4
+    g+=lite(x,8,88,78,"L"+(top+1),s.ci[top],s.ce[top],s.ei[top],lo,hi)+lite(x,96,88,86,"L"+(bot+1),s.ci[bot],s.ce[bot],s.ei[bot],lo,hi)}
+  g+=`<rect x="4" y="4" width="292" height="182" rx="2" fill="none" stroke="${C.ice}" stroke-width="4"/><line x1="4" y1="92" x2="296" y2="92" stroke="${C.ice}" stroke-width="4"/><line x1="100" y1="4" x2="100" y2="186" stroke="${C.ice}" stroke-width="4"/><line x1="196" y1="4" x2="196" y2="186" stroke="${C.ice}" stroke-width="4"/>`;
+  return `<svg viewBox="0 0 300 190" aria-hidden="true">${g}</svg>`}
+function thermoBar(s){const lo=Math.min(s.out,s.glass)-2,hi=Math.max(s.room,s.glass)+2,X=v=>8+(v-lo)/(hi-lo)*304;
+  return `<svg viewBox="0 0 320 34" aria-hidden="true"><defs><linearGradient id="g${s.id}" x1="0" x2="1"><stop offset="0" stop-color="${C.cold}"/><stop offset="1" stop-color="${C.amber}"/></linearGradient></defs>
+  <rect x="8" y="12" width="304" height="8" fill="url(#g${s.id})" opacity=".9"/>
+  <circle cx="${X(s.out)}" cy="16" r="5" fill="${C.night}" stroke="${C.cold}" stroke-width="2"/><circle cx="${X(s.room)}" cy="16" r="5" fill="${C.night}" stroke="${C.steel}" stroke-width="2"/>
+  <path d="M${X(s.glass)} 6 l6 -6 h-12z" fill="${C.amber}"/><rect x="${X(s.glass)-1.5}" y="6" width="3" height="22" fill="${C.amber}"/></svg>`}
+function renderWall(w,P){const s=wallStats(P,w),el=$("wall"+w);s.id=w;
+  if(s.glass==null||s.out==null||s.room==null){el.innerHTML=`<div class="lb-wh"><h3>${WALLS[w].name}</h3><span>${WALLS[w].tag}</span></div><div class="lb-unavail">Readings unavailable right now</div>`;return}
+  const diff=s.room-s.out;
+  el.innerHTML=`<div class="lb-wh"><h3>${WALLS[w].name}</h3><span>${WALLS[w].tag}</span></div>
+  <div class="lb-hero2"><div class="lb-big"><div class="lb-k">Inside glass</div><div class="lb-num">${f1(s.glass)}<small>F</small></div><div class="lb-s">${f1(s.glass-s.out)} F warmer than outside</div></div><div>${windows(w,s)}<div class="lb-key"><span><b>In</b> inside center</span><span><b>Out</b> outside center</span><span><b>Edge</b> inside edge</span><span>°F per lite</span></div></div></div>
+  <div class="lb-bar">${thermoBar(s)}<div class="lb-lbl"><span>OUTSIDE ${f1(s.out)}</span><span style="color:var(--amber)">GLASS ${f1(s.glass)}</span><span>ROOM ${f1(s.room)}</span></div></div>
+  <div class="lb-stats"><div class="lb-st"><div class="lb-k">Coldest<br>edge</div><div class="lb-num">${f1(s.edge)}<small>F</small></div></div>
+  <div class="lb-st"><div class="lb-k">Room to<br>outside</div><div class="lb-num">${f1(diff)}<small>F</small></div></div></div>${w==="A"?`<p class="lb-vnote">*V2 is installed counter to manufacturer guidance as a control to V1 and V3.</p>`:""}`}
+function chart(rows){const now=Date.now(),from=now-24*3600e3;let R=rows.filter(r=>new Date(r.t)>=from);if(R.length<2)R=rows.slice(-96);
+  $("chT").textContent=(R.length&&new Date(R[0].t)<now-20*3600e3)?"The last 24 hours":"Since readings began";
+  const ser=[[C.cold,p=>avg([p["A:air out 1"],p["B:air out 1"]])],[C.amber,p=>avg(WALLS.A.lites.map(l=>p[l+" ci"]))],[C.ice,p=>avg(WALLS.B.lites.map(l=>p[l+" ci"]))],[C.steel,p=>avg([p["A:air in 1"],p["B:air in 1"]])]];
+  const pts=R.map(r=>({t:new Date(r.t).getTime(),v:ser.map(([c,fn])=>fn(r.p))}));const vals=pts.flatMap(p=>p.v).filter(v=>v!=null);if(!vals.length)return;
+  let lo=Math.floor(Math.min(...vals)/5)*5,hi=Math.ceil(Math.max(...vals)/5)*5;const t0=pts[0].t,t1=Math.max(pts[pts.length-1].t,t0+3600e3);
+  const wide=window.innerWidth>720,W=wide?720:340,H=wide?220:170,l=30,r=8,tp=8,b=22,X=t=>l+(t-t0)/(t1-t0)*(W-l-r),Y=v=>tp+(hi-v)/(hi-lo||1)*(H-tp-b);
+  let g="";for(let v=lo;v<=hi;v+=(hi-lo>40?20:10)){g+=`<line x1="${l}" x2="${W-r}" y1="${Y(v)}" y2="${Y(v)}" stroke="${C.grid}"/><text x="${l-6}" y="${Y(v)+3}" text-anchor="end" ${MONO} font-size="9" fill="${C.steel}">${v}</text>`}
+  const fmt=t=>new Date(t).toLocaleTimeString("en-US",{timeZone:"America/Anchorage",hour:"numeric"}).replace(" ","").toLowerCase();
+  const nT=wide?6:3;for(let i=0;i<=nT;i++){const t=t0+(t1-t0)*i/nT;g+=`<text x="${X(t)}" y="${H-6}" text-anchor="${i==0?"start":i==nT?"end":"middle"}" ${MONO} font-size="9" fill="${C.steel}">${fmt(t)}</text>`}
+  ser.forEach(([c],k)=>{const d=pts.filter(p=>p.v[k]!=null).map((p,i)=>(i?"L":"M")+X(p.t).toFixed(1)+" "+Y(p.v[k]).toFixed(1)).join(" ");g+=`<path d="${d}" fill="none" stroke="${c}" stroke-width="${k==3?1.4:2.2}" ${k==3?'stroke-dasharray="4 3"':""} stroke-linejoin="round" stroke-linecap="round"/>`;const last=pts.filter(p=>p.v[k]!=null).pop();if(last)g+=`<circle cx="${X(last.t)}" cy="${Y(last.v[k])}" r="3" fill="${c}"/>`});
+  $("chart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Temperature chart">${g}</svg><div class="lb-aktime">Alaska time</div>`}
+// Live cameras. YouTube Live video IDs from Kevin, one per camera. Leave empty to hide the card.
+const CAMS={V:"",L:""};
+(function(){const ids=Object.entries(CAMS).filter(([k,v])=>v);if(!ids.length)return;
+  const label={V:"V Series",L:"L Series"};
+  $("camPair").innerHTML=ids.map(([k,v])=>`<div class="lb-cam"><div class="lb-k">${label[k]}</div><div class="lb-vid"><iframe src="https://www.youtube-nocookie.com/embed/${v}?autoplay=1&mute=1&playsinline=1&rel=0" title="${label[k]} live camera" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div></div>`).join("");
+  $("cams").classList.add("on");})();
+let lastRows=null;
+async function load(){const q="?t="+Math.floor(Date.now()/60000);
+  try{const L=await (await fetch(SRC+"latest.json"+q,{cache:"no-store"})).json();const P={};for(const[k,v]of Object.entries(L.probes))P[k]=v.value_f;
+    const age=(Date.now()-new Date(L.time_utc))/60000,ak=new Date(L.time_utc).toLocaleTimeString("en-US",{timeZone:"America/Anchorage",hour:"numeric",minute:"2-digit"});
+    $("lbLive").classList.toggle("stale",age>45);$("liveT").innerHTML=age>45?`Last reading <b>${ak} AK</b>, ${Math.round(age/60)} h ago`:`<b>Live</b> · updated ${ak} AK · ${Math.max(0,Math.round(age))} min ago`;
+    const out=avg([P["A:air out 1"],P["B:air out 1"]]);$("outV").innerHTML=`${f1(out)}<small>F</small>`;renderWall("A",P);renderWall("B",P);}
+  catch(e){$("liveT").textContent="Readings unavailable right now";$("wallA").innerHTML=$("wallB").innerHTML=""}
+  try{const H=await (await fetch(SRC+"history.json"+q,{cache:"no-store"})).json();lastRows=H.rows;chart(H.rows)}catch(e){}}
+load();setInterval(load,300000);
+let rz;window.addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(lastRows)chart(lastRows)},200)});
+})();
+</script>
 </body>
 </html>
