@@ -83,6 +83,8 @@ p.lede + p.lede{margin-top:14px}
 .eps{list-style:none;margin:32px 0 0;padding:0;counter-reset:e}
 .eps li{counter-increment:e;display:grid;grid-template-columns:36px 1fr;gap:4px 10px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(245,242,234,.14);font-family:var(--display);font-weight:600;font-size:18px;line-height:1.2}
 .eps li::before{content:counter(e,decimal-leading-zero);font-family:var(--mono);font-size:12px;color:var(--amber);font-weight:400}
+.eps a{color:var(--amber);text-decoration:none}
+.eps a:hover{text-decoration:underline}
 .eps li em{grid-column:2;font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);font-weight:400}
 .said{font-family:var(--display);font-weight:600;font-size:clamp(20px,5.4vw,26px);line-height:1.25;margin:28px 0 0;max-width:26ch;color:var(--frost)}
 .closer{padding:96px 0}
@@ -383,8 +385,7 @@ footer a{color:var(--amber);text-decoration:none}
     </div>
 
     <div class="cards" style="margin-top:20px">
-      <div class="card"><img src="img/ir-lseries-1.jpg" alt="Thermal camera view of the L Series wall from inside the lab" style="aspect-ratio:4/3"><p>L Series wall from inside, thermal camera, 17 Oct. Glass centre 59 F, frame cooler.</p></div>
-      <div class="card"><img src="img/ir-lseries-2.jpg" alt="Second thermal camera view of the L Series wall from inside the lab" style="aspect-ratio:4/3"><p>Same wall, a step to the right. The glass holds its heat across all six lites.</p></div>
+      <div class="card"><img src="img/ir-lseries-2.jpg" alt="Thermal camera view of the L Series wall from inside the lab" style="aspect-ratio:4/3"><p>L Series wall from inside, thermal camera, 17 Oct. The glass holds its heat across all six lites; the frame runs cooler.</p></div>
     </div>
   </div>
 </section>
@@ -436,7 +437,7 @@ footer a{color:var(--amber);text-decoration:none}
     <h2><span class="ln">What works here,</span><span class="ln">works anywhere.</span></h2>
     <p class="lede">Why Fairbanks? Keeping heat on one side of a window isn’t exclusively an issue for Arctic&nbsp;climes.</p><p class="lede">Insulation keeps heat in or out, lowering the cost of holding the temperature inside the building.</p><p class="lede">Whether you are heating or cooling, high performance insulation is purchased once, while utility bills come due monthly. Buy once, cry&nbsp;once.</p>
     <div class="cards">
-      <div class="card"><img src="img/lab-inside.jpg" alt="Three test windows in the lab wall seen from inside" style="object-position:50% 40%"><p>The test wall from inside the lab.</p></div>
+      <div class="card"><img src="img/ir-lseries-1.jpg" alt="Thermal camera view of the L Series test wall from inside the lab"><p>The L Series test wall from inside the lab, through a thermal camera.</p></div>
       <div class="card"><img src="img/lab-dusk.jpg" alt="Outside of the lab at dusk with sensor wires on the glass" style="object-position:50% 55%"><p>The lab from outside, with sensor wires on the glass.</p></div>
     </div>
   </div>
@@ -451,40 +452,17 @@ footer a{color:var(--amber);text-decoration:none}
   </div>
 </section>
 
-<!-- 7b FOUR PARTS (Kevin’s site map, 21 Jul) -->
-<section>
-  <div class="wrap">
-    <div class="k">08 &middot; Four parts</div>
-    <h2>One company,<br>four&nbsp;doors.</h2>
-    <div class="four">
-      <div><b>North 50 Building Products</b><span>Wholesale vacuum insulated glass. Wholesale legacy insulated glass.</span><em>Online quoting and ordering: planned</em></div>
-      <div><b>N50 Qualified</b><span>Window systems and components that pass our Fairbanks test.</span></div>
-      <div><b>Joy Arctic Innovation Center</b><span>A proposed home for Arctic building research in Fairbanks.</span><em>Proposed</em></div>
-      <div><b>Arctic Test Labs</b><span>Real-world cold testing, live from the lab.</span></div>
-    </div>
-  </div>
-</section>
-
 <!-- 7c LEARN -->
 <section>
   <div class="wrap">
-    <div class="k">09 &middot; Learn</div>
+    <div class="k">08 &middot; Learn</div>
     <h2>How heat really<br>moves.</h2>
     <p class="lede">Not theory. Not lab conditions. Actual performance in minus forty and below, with real wind and real thermal cycling.</p>
-    <p class="lede">Ten short videos from Kevin on the physics of windows. Not here to sell you anything, just to explain how it works.</p>
+    <p class="lede">Kevin on the physics of windows. Not here to sell you anything, just to explain how it works.</p>
     <ol class="eps">
-      <li>The Impossible Vacuum <em>Coming</em></li>
-      <li>Why Windows Leak Heat <em>Coming</em></li>
-      <li>The Physics of Nothing <em>Coming</em></li>
-      <li>The Edge Is Everything <em>Coming</em></li>
-      <li>R&#8209;7 to R&#8209;18: A Different Kind of&nbsp;Leap <em>Coming</em></li>
-      <li>The Frame Is Now the Weakest&nbsp;Link <em>Coming</em></li>
-      <li>Thermal Bridging and the 2&#8209;Inch&nbsp;Theory <em>Coming</em></li>
-      <li>The Arctic as the Ultimate Test&nbsp;Lab <em>Coming</em></li>
-      <li>Building for 2075 <em>Coming</em></li>
-      <li>Who Gets to Define the Next&nbsp;Standard? <em>Coming</em></li>
+      <li><a href="https://open.spotify.com/show/7AONOCLEsjvClTYB1E3qdk">The Cold Envelope</a> <em>Podcast &middot; Listen now</em></li>
+      <li>The Impossible Vacuum <em>Next &middot; Coming</em></li>
     </ol>
-    <div class="btns" style="display:flex"><a class="btn line" href="https://open.spotify.com/show/7AONOCLEsjvClTYB1E3qdk">Listen: The Cold Envelope</a></div>
   </div>
 </section>
 
@@ -493,7 +471,7 @@ footer a{color:var(--amber);text-decoration:none}
   <div class="wrap who">
     <img class="portrait" src="img/kevin.jpg" alt="Kevin Tennant">
     <div>
-      <div class="k">10 &middot; Who we are</div>
+      <div class="k">09 &middot; Who we are</div>
       <h2>Kevin Tennant</h2>
       <p class="role">Vice President, North 50 Building Systems</p>
       <p class="lede">Kevin Tennant is a retired U.S. Air Force Senior Master Sergeant and the founder and president of GDI Inc., which operates Glass Doctor of&nbsp;Fairbanks, Glass Doctor of the Mat&#8209;Su&nbsp;Valley, Mat&#8209;Su Insulated Glass, and Thermalite Glass&nbsp;Manufacturing.</p>
@@ -513,7 +491,7 @@ footer a{color:var(--amber);text-decoration:none}
 <!-- 9 CONTACT -->
 <section>
   <div class="wrap">
-    <div class="k">11 &middot; Updates</div>
+    <div class="k">10 &middot; Updates</div>
     <h2><span class="ln">Join our mailing list</span><span class="ln">for updates.</span></h2>
     <form onsubmit="return false">
       <input type="email" placeholder="Email" aria-label="Email">
