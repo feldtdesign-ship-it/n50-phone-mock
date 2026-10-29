@@ -201,7 +201,7 @@ a.lb-full:hover{text-decoration:underline}
 #live .lb-note{text-transform:none;letter-spacing:0;font-size:11px;line-height:1.65;margin:0}
 
 /* problem figure */
-.fig{margin-top:36px}
+.fig{margin:36px 0 0}
 .fig img{border:1px solid rgba(245,242,234,.14)}
 .fig figcaption{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--steel);margin-top:12px;text-transform:uppercase}
 
@@ -211,8 +211,13 @@ ol.tests li{counter-increment:t;display:grid;grid-template-columns:44px 1fr;gap:
   border-top:1px solid rgba(245,242,234,.14)}
 ol.tests li::before{content:counter(t,decimal-leading-zero);font-family:var(--mono);color:var(--amber);font-size:14px;padding-top:3px}
 ol.tests li b{font-family:var(--display);font-weight:800;font-size:20px;display:block}
-ol.tests li span{color:var(--steel);font-size:15px}
-ol.tests li span.tag{color:var(--midnight);font-size:11px}
+ol.tests li span{color:var(--steel);font-size:16px}
+.hold{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);border:1px dashed var(--amber);padding:4px 8px;background:transparent}
+ol.tests li span.hold{color:var(--amber);font-size:11px}
+.frame .hold{color:var(--slate);border-color:var(--slate)}
+ol.tests.plain li{grid-template-columns:1fr}
+ol.tests.plain li::before{content:none}
+ol.tests.audience li b{font-size:26px;line-height:1.1;margin-bottom:8px}
 .pull{font-family:var(--display);font-weight:800;font-size:clamp(26px,7vw,40px);line-height:1.1;margin-top:32px;max-width:20ch}
 
 /* frame */
@@ -336,20 +341,21 @@ footer a{color:var(--amber);text-decoration:none}
     <h2>The best part<br>is no&nbsp;part.</h2>
     <p class="lede">The best part of a vacuum window is the nothing between two panes of tempered&nbsp;glass.</p>
     <p class="lede">Adding layers or complexity does not improve performance. Vacuum refuses to move heat. Atmospheric pressure, however, hates&nbsp;vacuum.</p>
-    <div class="rscale" role="img" aria-label="R-value of window glass over time, from R-1 for single pane to R-18 for vacuum glass and R-23 with a third lite">
+    <div class="rscale" role="img" aria-label="R-value of window glass over time, from R-1 for single pane to R-18 for vacuum glass and R-23 with a third pane">
       <div class="r"><span>Single pane</span><b>R-1</b><i style="--w:4%"></i></div>
       <div class="r"><span>1865 &middot; Double pane</span><b>R-2</b><i style="--w:9%"></i></div>
       <div class="r"><span>1970s &middot; Argon</span><b>R-3</b><i style="--w:13%"></i></div>
       <div class="r"><span>1990s &middot; Low-e</span><b>R-5</b><i style="--w:22%"></i></div>
       <div class="r"><span>2000s &middot; Triple pane</span><b>R-7</b><i style="--w:30%"></i></div>
       <div class="r now"><span>Now &middot; Vacuum glass</span><b>R-18</b><i style="--w:78%"></i></div>
-      <div class="r now"><span>Vacuum glass plus third lite</span><b>R-23</b><i style="--w:100%"></i></div>
+      <div class="r now"><span>Vacuum glass plus third pane</span><b>R-23</b><i style="--w:100%"></i></div>
     </div>
     <p class="note">R-value is resistance to heat flow. Low-e is low emissivity. Center of glass. Whole-window numbers are lower.</p>
+    <p style="margin:12px 0 0"><span class="hold">Hold: name a source for these numbers</span></p>
     </div>
     <figure class="fig">
       <img src="img/pillar-coin.jpg" alt="A vacuum glass support pillar resting on a coin, for scale">
-      <figcaption>A support pillar on a coin, for scale. Rows of these hold the two lites apart across the vacuum &middot; Real photo</figcaption>
+      <figcaption>A support pillar on a coin, for scale. Rows of these hold the two panes apart across the vacuum &middot; Real photo</figcaption>
     </figure>
   </div>
 </section>
@@ -363,11 +369,11 @@ footer a{color:var(--amber);text-decoration:none}
       <p class="lede">Two panes of tempered glass. A gap about 0.3 millimeters wide. The air pumped&nbsp;out.</p>
       <ol class="tests">
         <li><div><b>The vacuum.</b><span>Heat moves three ways: conduction, convection and radiation. With no air in the gap, conduction and convection through it nearly&nbsp;stop.</span></div></li>
-        <li><div><b>The coating.</b><span>A thin, invisible low-e (low emissivity) coating on the glass reflects radiant heat. That cuts the third&nbsp;path.</span></div></li>
+        <li><div><b>The coating.</b><span>A thin, invisible low-e coating on the glass reflects radiant heat. That cuts the third&nbsp;path.</span></div></li>
         <li><div><b>The pillars.</b><span>Air presses on everything at about 14.7 pounds per square inch. On a 14 by 20 inch sample, that is about 4,116 pounds pushing the panes together. Tiny pillars in a grid hold them apart. You have to look closely to see&nbsp;them.</span></div></li>
         <li><div><b>The edge seal.</b><span>The edges are sealed airtight so the vacuum lasts for years. Holding a vacuum under that load is hard. It is a big part of why this took so long to get&nbsp;right.</span></div></li>
       </ol>
-      <p class="note">The 14 by 20 inch showroom sample rates about R-18 (center of glass).</p>
+      <p class="lede">The 14 by 20 inch showroom sample rates about R-18 (center of&nbsp;glass).</p>
     </div>
     <div>
       <figure class="fig" style="margin-top:0">
@@ -409,12 +415,12 @@ footer a{color:var(--amber);text-decoration:none}
     </div>
 
     <div class="lb-lab-foot">
-      <p class="lb-note">The big number is the inside center of each lite, averaged. Each lite also shows its outside center and inside edge. Readings arrive every 15 minutes from the loggers at the lab.</p>
+      <p class="lb-note">The big number is the inside center of each pane, averaged. Each pane also shows its outside center and inside edge. Readings arrive every 15 minutes from the loggers at the lab.</p>
       <a class="lb-full" href="https://feldtdesign-ship-it.github.io/n50-lab-live/">Full lab dashboard &rarr;</a>
     </div>
 
     <div class="cards" style="margin-top:20px">
-      <div class="card"><img src="img/ir-lseries-2.jpg" alt="Thermal camera view of the L Series wall from inside the lab" style="aspect-ratio:4/3"><p>L Series wall from inside, thermal camera, 17 Oct. The glass holds its heat across all six lites; the frame runs cooler.</p></div>
+      <div class="card"><img src="img/ir-lseries-2.jpg" alt="Thermal camera view of the L Series wall from inside the lab" style="aspect-ratio:4/3"><p>L Series wall from inside, thermal camera, 17 Oct. The glass holds its heat across all six panes; the frame runs cooler &middot; Real photo</p></div>
       <div class="card"><img src="img/lab-wall-outside.jpg" alt="The large test window wall seen from outside, reflecting autumn trees and the sky" style="aspect-ratio:4/3"><p>The same kind of wall from outside, with the sky and trees in the glass &middot; Real photo</p></div>
     </div>
   </div>
@@ -434,7 +440,7 @@ footer a{color:var(--amber);text-decoration:none}
     </div>
     <div>
       <ol class="tests">
-        <li><div><b>Thermocouple testing</b><span>Thermocouples are attached to the glass at the center and at the edge. The window system goes into an outdoor test wall and stays through a full Fairbanks winter. We compare what the glass does with what the lab sheet predicts.</span><br><span class="tag">Pass mark: to be set with Kevin</span></div></li>
+        <li><div><b>Thermocouple testing</b><span>Thermocouples (temperature sensors) are attached to the glass at the center and at the edge. The window system goes into an outdoor test wall and stays through a full Fairbanks winter. We compare what the glass does with what the lab sheet predicts.</span><br><span class="hold">Hold: pass mark to be set with Kevin</span></div></li>
         <li><div><b>Test two</b><span>To be written with Kevin.</span></div></li>
         <li><div><b>Test three</b><span>To be written with Kevin.</span></div></li>
       </ol>
@@ -450,7 +456,7 @@ footer a{color:var(--amber);text-decoration:none}
       <h2>Three kinds of people. One honest&nbsp;answer.</h2>
     </div>
     <div>
-      <ol class="tests">
+      <ol class="tests plain audience">
         <li><div><b>Homeowners and the public.</b><span>Clear information on which windows hold up in the cold. Buy once, and stop paying for heat that leaks&nbsp;out.</span></div></li>
         <li><div><b>Builders, architects and engineers.</b><span>A documented, traceable basis for choosing and specifying window systems for cold-climate&nbsp;projects.</span></div></li>
         <li><div><b>Manufacturers.</b><span>Real-world cold testing, and a qualification record they can share with the&nbsp;market.</span></div></li>
@@ -467,15 +473,15 @@ footer a{color:var(--amber);text-decoration:none}
       <h2>Vacuum glass shames the&nbsp;frame.</h2>
       <p class="lede">Most conventional frames are designed around aesthetics and maximum visible glass. Overall U-value (rate of heat loss) is rarely treated as the primary design driver. Until vacuum insulated glass arrived, the frame was rarely the weakest&nbsp;link.</p><p class="lede">Our goal is a complete cold-climate assembly, designed to survive thermal cycling and to stay manufacturable, installable and maintainable. Two designs are in development: the Shameless and the&nbsp;Jumbo.</p>
       <p class="lede">We are also working on systems to retrofit existing vinyl frames suitable for an upgrade, so the switch to vacuum glass is affordable for any&nbsp;home.</p>
-      <div class="pend">Patent pending</div>
+      <div class="pend"><span class="hold">Hold: patent pending, status to confirm</span></div>
     </div>
     <div class="renders">
       <figure>
-        <img src="img/frame-hero.jpg" alt="Three-quarter render of the Shameless frame holding a vacuum glass lite, with a small cutaway sample beside it">
+        <img src="img/frame-hero.jpg" alt="Three-quarter render of the Shameless frame holding a vacuum glass pane, with a small cutaway sample beside it">
         <figcaption><span>Concept mock-up</span><span>The Shameless frame</span></figcaption>
       </figure>
       <figure>
-        <img src="img/frame-assembly.jpg" alt="Three-quarter cutaway of the frame section showing insulated cavities around two lites of glass">
+        <img src="img/frame-assembly.jpg" alt="Three-quarter cutaway of the frame section showing insulated cavities around two panes of glass">
         <figcaption><span>Concept mock-up</span><span>Cutaway: insulated cavities at the glass edge</span></figcaption>
       </figure>
     </div>
@@ -487,14 +493,14 @@ footer a{color:var(--amber);text-decoration:none}
   <div class="wrap">
     <div class="k">08 &middot; Why Fairbanks</div>
     <h2><span class="ln">What works here,</span><span class="ln">works anywhere.</span></h2>
-    <p class="lede">Why Fairbanks? Keeping heat on one side of a window isn’t exclusively an issue for Arctic&nbsp;climes.</p><p class="lede">Insulation keeps heat in or out, lowering the cost of holding the temperature inside the building.</p><p class="lede">Whether you are heating or cooling, high performance insulation is purchased once, while utility bills come due monthly. Buy once, cry&nbsp;once.</p><p class="lede">The same physics that keeps heat in during a Fairbanks January keeps it out during a Texas&nbsp;July.</p><p class="lede">Freezing is the step most accelerated weathering tests leave out. Fairbanks supplies it every&nbsp;winter.</p>
+    <p class="lede">Why Fairbanks? Keeping heat on one side of a window isn’t exclusively an issue for Arctic&nbsp;climes.</p><p class="lede">Insulation keeps heat in or out, lowering the cost of holding the temperature inside the building.</p><p class="lede">Whether you are heating or cooling, high performance insulation is purchased once, while utility bills come due monthly. Buy once, cry&nbsp;once.</p><p class="said">The same physics that keeps heat in during a Fairbanks January keeps it out during a Texas&nbsp;July.</p><p class="lede">Freezing is the step most accelerated weathering tests leave out. Fairbanks supplies it every&nbsp;winter.</p>
     <figure class="fig">
       <img src="img/lab-aerial.jpg" alt="Aerial view of the lab building with its large window wall, set in autumn hills outside Fairbanks">
       <figcaption>The lab in the autumn hills &middot; Real photo</figcaption>
     </figure>
     <div class="cards">
-      <div class="card"><img src="img/ir-lseries-1.jpg" alt="Thermal camera view of the L Series test wall from inside the lab"><p>The L Series test wall from inside the lab, through a thermal camera.</p></div>
-      <div class="card"><img src="img/lab-dusk.jpg" alt="Outside of the lab at dusk with sensor wires on the glass" style="object-position:50% 55%"><p>The lab from outside, with sensor wires on the glass.</p></div>
+      <div class="card"><img src="img/ir-lseries-1.jpg" alt="Thermal camera view of the L Series test wall from inside the lab"><p>The L Series test wall from inside the lab, through a thermal camera &middot; Real photo</p></div>
+      <div class="card"><img src="img/lab-dusk.jpg" alt="Outside of the lab at dusk with sensor wires on the glass" style="object-position:50% 55%"><p>The lab from outside, with sensor wires on the glass &middot; Real photo</p></div>
     </div>
   </div>
 </section>
@@ -530,6 +536,7 @@ footer a{color:var(--amber);text-decoration:none}
       <div class="k">11 &middot; Who we are</div>
       <h2>Kevin Tennant</h2>
       <p class="role">Vice President, North 50 Building Systems</p>
+      <p style="margin:12px 0 0"><span class="hold">Hold: new headshot to come</span></p>
       <p class="lede">Kevin Tennant is a retired U.S. Air Force Senior Master Sergeant and the founder and president of GDI Inc., which operates Glass Doctor of&nbsp;Fairbanks, Glass Doctor of the Mat&#8209;Su&nbsp;Valley, Mat&#8209;Su Insulated Glass, and Thermalite Glass&nbsp;Manufacturing.</p>
       <p class="lede">In January 1998, while still serving full-time in the Guard, Kevin and Tamera started a windshield-repair business at their kitchen table with a $500 rock-chip kit and discarded windshields. It grew into residential and commercial glass and heavy-equipment work for customers that included Fort Knox, the Alaska Railroad, and Eielson Air Force&nbsp;Base.</p>
       <p class="lede">In 2019 the U.S. Small Business Administration’s Alaska District Office named Glass Doctor of Fairbanks the Alaska Veteran-Owned Business of the Year. In 2021 its franchisor named it Franchisee of the&nbsp;Year.</p>
@@ -539,11 +546,6 @@ footer a{color:var(--amber);text-decoration:none}
   </div>
 </section>
 
-<!-- 8b CLOSER -->
-<section class="closer"><div class="wrap">
-  <p><span class="ln">In the Arctic, heat is not&nbsp;comfort.</span><span class="ln">At minus fifty it is <span>the difference between life and&nbsp;death.</span></span></p>
-</div></section>
-
 <!-- 8c QUESTIONS -->
 <section id="questions">
   <div class="wrap split">
@@ -552,16 +554,21 @@ footer a{color:var(--amber);text-decoration:none}
       <h2>Short answers.</h2>
     </div>
     <div>
-      <ol class="tests">
+      <ol class="tests plain">
         <li><div><b>What are the little dots in the glass?</b><span>Micro-pillars. They keep the two panes from touching.</span></div></li>
-        <li><div><b>Is it fragile?</b><span>Both panes are tempered glass, which is heat-treated to be far stronger than ordinary glass.</span><br><span class="tag">Hold: no strength number until Kevin gives a tested source</span></div></li>
+        <li><div><b>Is it fragile?</b><span>Both panes are tempered glass, which is heat-treated to be far stronger than ordinary glass.</span><br><span class="hold">Hold: no strength number until Kevin gives a tested source</span></div></li>
         <li><div><b>Why is there frost on the outside?</b><span>On cold, damp mornings, very well insulated glass can frost on the outside. So little heat escapes that nothing warms it. That is a sign it works.</span></div></li>
         <li><div><b>Does it work in summer?</b><span>Yes. The same physics keeps heat out on hot days.</span></div></li>
-        <li><div><b>Can it go in my existing frame?</b><span>Sometimes. The vacuum part can be under half an inch thick, so it can replace glass in some existing frames. See the frame section.</span><br><span class="tag">Hold: Kevin to confirm before publishing</span></div></li>
+        <li><div><b>Can it go in my existing frame?</b><span>Sometimes. The vacuum part can be under half an inch thick, so it can replace glass in some existing frames. See the frame section.</span><br><span class="hold">Hold: Kevin to confirm before publishing</span></div></li>
       </ol>
     </div>
   </div>
 </section>
+
+<!-- 8b CLOSER -->
+<section class="closer"><div class="wrap">
+  <p><span class="ln">In the Arctic, heat is not&nbsp;comfort.</span><span class="ln">At minus fifty it is <span>the difference between life and&nbsp;death.</span></span></p>
+</div></section>
 
 <!-- 9 CONTACT -->
 <section>
@@ -571,6 +578,7 @@ footer a{color:var(--amber);text-decoration:none}
     <form onsubmit="return false">
       <input type="email" placeholder="Email" aria-label="Email">
       <a class="btn solid" href="#">Join the list</a>
+      <span class="hold" style="justify-self:start">Hold: sign-up address to come</span>
     </form>
   </div>
   <div class="wrap" style="margin-top:72px">
@@ -587,7 +595,7 @@ footer a{color:var(--amber);text-decoration:none}
 // Live lab readings. Reads the newest numbers straight from the lab-data branch on GitHub.
 (function(){
 const SRC="https://raw.githubusercontent.com/feldtdesign-ship-it/n50-lab-live/lab-data/";
-const WALLS={A:{name:"V Series",tag:"3 lites",lites:["V1","V2","V3"]},B:{name:"L Series",tag:"6 lites · one frame",lites:["L1","L2","L3","L4","L5","L6"]}};
+const WALLS={A:{name:"V Series",tag:"3 panes",lites:["V1","V2","V3"]},B:{name:"L Series",tag:"6 panes · one frame",lites:["L1","L2","L3","L4","L5","L6"]}};
 const C={cold:"#7EC3E6",amber:"#F0B93F",ice:"#F5F2EA",steel:"#8A98AC",night:"#141B3C",grid:"rgba(245,242,234,.10)",frameFill:"#1E2A52"};
 const $=id=>document.getElementById(id);
 const f1=v=>v==null?"n/a":v.toFixed(1);
@@ -617,7 +625,7 @@ function renderWall(w,P){const s=wallStats(P,w),el=$("wall"+w);s.id=w;
   if(s.glass==null||s.out==null||s.room==null){el.innerHTML=`<div class="lb-wh"><h3>${WALLS[w].name}</h3><span>${WALLS[w].tag}</span></div><div class="lb-unavail">Readings unavailable right now</div>`;return}
   const diff=s.room-s.out;
   el.innerHTML=`<div class="lb-wh"><h3>${WALLS[w].name}</h3><span>${WALLS[w].tag}</span></div>
-  <div class="lb-hero2"><div class="lb-big"><div class="lb-k">Inside glass</div><div class="lb-num">${f1(s.glass)}<small>F</small></div><div class="lb-s">${f1(s.glass-s.out)} F warmer than outside</div></div><div>${windows(w,s)}<div class="lb-key"><span><b>In</b> inside center</span><span><b>Out</b> outside center</span><span><b>Edge</b> inside edge</span><span>F per lite</span></div></div></div>
+  <div class="lb-hero2"><div class="lb-big"><div class="lb-k">Inside glass</div><div class="lb-num">${f1(s.glass)}<small>F</small></div><div class="lb-s">${f1(s.glass-s.out)} F warmer than outside</div></div><div>${windows(w,s)}<div class="lb-key"><span><b>In</b> inside center</span><span><b>Out</b> outside center</span><span><b>Edge</b> inside edge</span><span>F per pane</span></div></div></div>
   <div class="lb-bar">${thermoBar(s)}<div class="lb-lbl"><span>OUTSIDE ${f1(s.out)}</span><span style="color:var(--amber)">GLASS ${f1(s.glass)}</span><span>ROOM ${f1(s.room)}</span></div></div>
   <div class="lb-stats"><div class="lb-st"><div class="lb-k">Coldest<br>edge</div><div class="lb-num">${f1(s.edge)}<small>F</small></div></div>
   <div class="lb-st"><div class="lb-k">Room to<br>outside</div><div class="lb-num">${f1(diff)}<small>F</small></div></div></div>${w==="A"?`<p class="lb-vnote">*V2 is installed counter to manufacturer guidance as a control to V1 and V3.</p>`:""}`}
