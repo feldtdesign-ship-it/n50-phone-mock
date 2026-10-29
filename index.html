@@ -604,9 +604,9 @@ function lite(x,y,w,h,name,ci,ce,ei,lo,hi){const fill=ci==null?C.frameFill:mix(c
 function windows(w,s){const lo=s.out,hi=s.room;
   if(w==="A"){let g="";s.ci.forEach((t,i)=>{const x=4+i*98;g+=lite(x,4,92,108,"V"+(i+1)+(i===1?"*":""),s.ci[i],s.ce[i],s.ei[i],lo,hi)+`<rect x="${x}" y="4" width="92" height="108" rx="2" fill="none" stroke="${C.ice}" stroke-width="3"/>`});return `<svg viewBox="0 0 300 116" aria-hidden="true">${g}</svg>`}
   let g="";
-  for(let c=0;c<3;c++){const x=8+c*96; const top=2-c, bot=5-c;  // from inside: top row L3 L2 L1, bottom row L6 L5 L4
-    g+=lite(x,8,88,78,"L"+(top+1),s.ci[top],s.ce[top],s.ei[top],lo,hi)+lite(x,96,88,86,"L"+(bot+1),s.ci[bot],s.ce[bot],s.ei[bot],lo,hi)}
-  g+=`<rect x="4" y="4" width="292" height="182" rx="2" fill="none" stroke="${C.ice}" stroke-width="4"/><line x1="4" y1="92" x2="296" y2="92" stroke="${C.ice}" stroke-width="4"/><line x1="100" y1="4" x2="100" y2="186" stroke="${C.ice}" stroke-width="4"/><line x1="196" y1="4" x2="196" y2="186" stroke="${C.ice}" stroke-width="4"/>`;
+  for(let c=0;c<3;c++){const x=6+c*97.33; const top=2-c, bot=5-c;  // from inside: top row L3 L2 L1, bottom row L6 L5 L4. Lites fill the openings between frame and dividers.
+    g+=lite(x,6,93.33,84,"L"+(top+1),s.ci[top],s.ce[top],s.ei[top],lo,hi)+lite(x,94,93.33,90,"L"+(bot+1),s.ci[bot],s.ce[bot],s.ei[bot],lo,hi)}
+  g+=`<rect x="4" y="4" width="292" height="182" rx="2" fill="none" stroke="${C.ice}" stroke-width="4"/><line x1="4" y1="92" x2="296" y2="92" stroke="${C.ice}" stroke-width="4"/><line x1="101.33" y1="4" x2="101.33" y2="186" stroke="${C.ice}" stroke-width="4"/><line x1="198.67" y1="4" x2="198.67" y2="186" stroke="${C.ice}" stroke-width="4"/>`;
   return `<svg viewBox="0 0 300 190" aria-hidden="true">${g}</svg>`}
 function thermoBar(s){const lo=Math.min(s.out,s.glass)-2,hi=Math.max(s.room,s.glass)+2,X=v=>8+(v-lo)/(hi-lo)*304;
   return `<svg viewBox="0 0 320 34" aria-hidden="true"><defs><linearGradient id="g${s.id}" x1="0" x2="1"><stop offset="0" stop-color="${C.cold}"/><stop offset="1" stop-color="${C.amber}"/></linearGradient></defs>
